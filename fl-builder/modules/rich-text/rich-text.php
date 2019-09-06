@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @class FLRichTextModule
+ */
+class FLRichTextModule extends FLBuilderModule {
+
+	/**
+	 * @method __construct
+	 */
+	public function __construct() {
+		parent::__construct(array(
+			'name'          	=> __( 'Text Editor', 'fl-builder' ),
+			'description'   	=> __( 'A WYSIWYG text editor.', 'fl-builder' ),
+			'category'      	=> __( 'Basic', 'fl-builder' ),
+			'partial_refresh'	=> true,
+			'icon'				=> 'text.svg',
+		));
+	}
+}
+
+/**
+ * Register the module and its form settings.
+ */
+FLBuilder::register_module('FLRichTextModule', array(
+	'general'       => array( // Tab
+		'title'         => __( 'General', 'fl-builder' ), // Tab title
+		'sections'      => array( // Tab Sections
+			'general'       => array( // Section
+				'title'         => '', // Section Title
+				'fields'        => array( // Section Fields
+					'text'          => array(
+						'type'          => 'editor',
+						'label'         => '',
+						'rows'          => 13,
+						'wpautop'		=> false,
+						'preview'         => array(
+							'type'             => 'text',
+							'selector'         => '.fl-rich-text',
+						),
+						'connections'   => array( 'string' ),
+					),
+					'blocktype'		=> array(
+						'type'			=> 'select',
+						'label'			=> __('Block Type', 'fl-builder'),
+						'default'		=> 'body-copy',
+						'options'		=> array(
+							'body-copy'	=> __('Body Copy', 'fl-builder'),
+							'intro-text'=> __('Intro Text', 'fl-builder'),
+							'secondary-intro'=> __('Secondary Intro', 'fl-builder'),
+							'small-text'=> __('Small Text', 'fl-builder')
+						)	
+					),
+				),
+			),
+		),
+	),
+));
