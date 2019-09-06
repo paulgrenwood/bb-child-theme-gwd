@@ -133,9 +133,35 @@ function gwstandard_customizer_options( $wp_customize ){
 	===
 	*/
 	
+	//INTRO TEXT FONT SIZE - SETTINGS
+	$wp_customize->add_setting(
+		'gwstandard__intro_text__font_size',
+		array(
+			'default' => '18',
+			'transport' => 'postMessage'
+		)
+	);
+	//INTRO TEXT FONT SIZE - CONTROLS
+	$wp_customize->add_control(
+		new FLCustomizerControl(
+			$wp_customize,
+			'gwstandard__intro_text__font_size',
+			array(
+				'label'		=> __('Intro Text Font Size', 'gwstandard' ),
+				'type'		=> 'slider',
+				'section'	=> 'fl-body-font',
+				'choices'	=> array(
+					'min'  => 10,
+					'max'  => 72,
+					'step' => 1
+				)
+			)
+		)
+	);
+	
 	//PARAGRAPH - SETTINGS
 	$wp_customize->add_setting(
-		'gwstandard_body-font_margin-bottom',
+		'gwstandard__body_font__margin_bottom',
 		array(
 			'default' => '10',
 			'transport' => 'postMessage'
@@ -145,7 +171,7 @@ function gwstandard_customizer_options( $wp_customize ){
 	$wp_customize->add_control(
 		new FLCustomizerControl(
 			$wp_customize,
-			'gwstandard_body-font_margin-bottom',
+			'gwstandard__body_font__margin_bottom',
 			array(
 				'label'		=> __( 'Paragraph Margin Bottom', 'gwstandard' ),
 				'type'		=> 'slider',
@@ -159,72 +185,21 @@ function gwstandard_customizer_options( $wp_customize ){
 		)
 	);
 	
-	//INTRO - SETTINGS
+	
+	//INTRO TEXT LINE HEIGHT - SETTINGS
 	$wp_customize->add_setting(
-		'gwstandard_intro-text_font-size',
-		array(
-			'default' => '18',
-			'transport' => 'postMessage'
-		)
-	);
-	$wp_customize->add_setting(
-		'gwstandard_intro-text_line-height',
+		'gwstandard__intro_text__line_height',
 		array(
 			'default' => '1.6',
 			'transport' => 'postMessage'
 		)
 	);
-	$wp_customize->add_setting(
-		'gwstandard_intro_text_margin-bottom',
-		array(
-			'default' => '18',
-			'transport' => 'postMessage'
-		)
-	);
 	
-	$wp_customize->add_setting(
-		'gwstandard_secondary-intro_font-size',
-		array(
-			'default' => '20',
-			'transport' => 'postMessage'
-		)	
-	);
-	$wp_customize->add_setting(
-		'gwstandard_secondary-intro_line-height',
-		array(
-			'default' => '1.6',
-			'transport' => 'postMessage'
-		)
-	);
-	$wp_customize->add_setting(
-		'gwstandard_secondary-intro_margin-bottom',
-		array(
-			'default' => '20',
-			'transport' => 'postMessage'
-		)
-	);
-	
-	//INTRO - CONTROLS
+	//INTRO TEXT LINE HEIGHT - CONTROLS
 	$wp_customize->add_control(
 		new FLCustomizerControl(
 			$wp_customize,
-			'gwstandard_intro-text_font-size',
-			array(
-				'label'		=> __('Intro Text Font Size', 'gwstandard' ),
-				'type'		=> 'slider',
-				'section'	=> 'fl-body-font',
-				'choices'	=> array(
-					'min'  => 10,
-					'max'  => 72,
-					'step' => 1
-				)
-			)
-		)
-	);
-	$wp_customize->add_control(
-		new FLCustomizerControl(
-			$wp_customize,
-			'gwstandard_intro-text_line-height',
+			'gwstandard__intro_text__line_height',
 			array(
 				'label'		=> __('Intro Text Line Height', 'gwstandard' ),
 				'type'		=> 'slider',
@@ -237,10 +212,21 @@ function gwstandard_customizer_options( $wp_customize ){
 			)
 		)
 	);
+	
+	//INTRO TEXT MARGIN BOTTOM - SETTINGS
+	$wp_customize->add_setting(
+		'gwstandard__intro_text__margin_bottom',
+		array(
+			'default' => '18',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	//INTRO TEXT MARGIN BOTTOM - CONTROLS
 	$wp_customize->add_control(
 		new FLCustomizerControl(
 			$wp_customize,
-			'gwstandard_intro_text_margin-bottom',
+			'gwstandard__intro_text__margin_bottom',
 			array(
 				'label'		=> __( 'Intro Text Margin Bottom', 'gwstandard' ),
 				'type'		=> 'slider',
@@ -254,10 +240,21 @@ function gwstandard_customizer_options( $wp_customize ){
 		)
 	);
 	
+	
+	//SECONDARY INTRO FONT SIZE - SETTINGS
+	$wp_customize->add_setting(
+		'gwstandard__secondary_intro__font_size',
+		array(
+			'default' => '20',
+			'transport' => 'postMessage'
+		)	
+	);
+	
+	//SECONDARY INTRO FONT SIZE - CONTROLS
 	$wp_customize->add_control(
 		new FLCustomizerControl(
 			$wp_customize,
-			'gwstandard_secondary-intro_font-size',
+			'gwstandard__secondary_intro__font_size',
 			array(
 				'label'		=> __('Secondary Intro Font Size', 'gwstandard' ),
 				'type'		=> 'slider',
@@ -270,10 +267,21 @@ function gwstandard_customizer_options( $wp_customize ){
 			)
 		)
 	);
+	
+	//SECONDARY INTRO LINE HEIGHT - SETTINGS
+	$wp_customize->add_setting(
+		'gwstandard__secondary_intro__line_height',
+		array(
+			'default' => '1.6',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	//SECONDARY INTRO LINE HEIGHT - CONTROLS
 	$wp_customize->add_control(
 		new FLCustomizerControl(
 			$wp_customize,
-			'gwstandard_secondary-intro_line-height',
+			'gwstandard__secondary_intro__line_height',
 			array(
 				'label'		=> __('Secondary Intro Line Height', 'gwstandard' ),
 				'type'		=> 'slider',
@@ -286,10 +294,21 @@ function gwstandard_customizer_options( $wp_customize ){
 			)
 		)
 	);
+	
+	//SECONDARY INTRO MARGIN BOTTOM - SETTINGS
+	$wp_customize->add_setting(
+		'gwstandard__secondary_intro__margin_bottom',
+		array(
+			'default' => '20',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	//SECONDARY INTRO MARGIN BOTTOM - CONTROLS
 	$wp_customize->add_control(
 		new FLCustomizerControl(
 			$wp_customize,
-			'gwstandard_secondary-intro_margin-bottom',
+			'gwstandard__secondary_intro__margin_bottom',
 			array(
 				'label'		=> __( 'Secondary Intro Margin Bottom', 'gwstandard' ),
 				'type'		=> 'slider',
@@ -303,66 +322,76 @@ function gwstandard_customizer_options( $wp_customize ){
 		)
 	);
 	
-	//SMALL - SETTING
+	
+	//SMALL TEXT FONT SIZE - SETTINGS
 	$wp_customize->add_setting(
-		'gwstandard_small-text_font-size',
+		'gwstandard__small_text__font_size',
 		array(
 			'default' => '14',
 			'transport' => 'postMessage'
 		)
 	);
+	
+	//SMALL TEXT FONT SIZE - CONTROLS
+	$wp_customize->add_control(
+		new FLCustomizerControl(
+			$wp_customize,
+			'gwstandard__small_text__font_size',
+			array(
+				'label'		=> __('Small Text Font Size', 'gwstandard' ),
+				'type'		=> 'slider',
+				'section'	=> 'fl-body-font',
+				'choices'	=> array(
+					'min'  => 10,
+					'max'  => 72,
+					'step' => 1
+				)
+			)
+		)
+	);
+		
+	//SMALL TEXT LINE HEIGHT - SETTINGS
 	$wp_customize->add_setting(
-		'gwstandard_small-text_line-height',
+		'gwstandard__small_text__line_height',
 		array(
 			'default' => '1.2',
 			'transport' => 'postMessage'
 		)
 	);
+	
+	//SMALL TEXT LINE HEIGHT - CONTROLS
+	$wp_customize->add_control(
+		new FLCustomizerControl(
+			$wp_customize,
+			'gwstandard__small_text__line_height',
+			array(
+				'label'		=> __('Small Text Line Height', 'gwstandard' ),
+				'type'		=> 'slider',
+				'section'	=> 'fl-body-font',
+				'choices'	=> array(
+					'min'	=> 1,
+					'max'	=> 2.5,
+					'step'	=> 0.05
+				)
+			)
+		)
+	);
+	
+	
+	//SMALL TEXT MARGIN BOTTOM - SETTINGS
 	$wp_customize->add_setting(
-		'gwstandard_small-text_margin-bottom',
+		'gwstandard__small_text__margin_bottom',
 		array(
 			'default' => '10',
 			'transport' => 'postMessage'
 		)
 	);
-	//SMALL - CONTROLS
-			$wp_customize->add_control(
-			new FLCustomizerControl(
-				$wp_customize,
-				'gwstandard_small-text_font-size',
-				array(
-					'label'		=> __('Small Text Font Size', 'gwstandard' ),
-					'type'		=> 'slider',
-					'section'	=> 'fl-body-font',
-					'choices'	=> array(
-						'min'  => 10,
-						'max'  => 72,
-						'step' => 1
-					)
-				)
-			)
-		);
-		$wp_customize->add_control(
-			new FLCustomizerControl(
-				$wp_customize,
-				'gwstandard_small-text_line-height',
-				array(
-					'label'		=> __('Small Text Line Height', 'gwstandard' ),
-					'type'		=> 'slider',
-					'section'	=> 'fl-body-font',
-					'choices'	=> array(
-						'min'	=> 1,
-						'max'	=> 2.5,
-						'step'	=> 0.05
-					)
-				)
-			)
-		);
 	
+	//SMALL TEXT MARGIN BOTTOM - CONTROLS
 	$wp_customize->add_control(
 		new FLCustomizerControl(
 			$wp_customize,
-			'gwstandard_small-text_margin-bottom',
+			'gwstandard__small_text__margin_bottom',
 			array(
 				'label'		=> __( 'Small Text Margin Bottom', 'gwstandard' ),
 				'type'		=> 'slider',

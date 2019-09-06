@@ -9,7 +9,7 @@ require_once 'classes/class-fl-child-theme.php';
 
 // Customizer Additions
 require_once 'customizer/customizer-settings.php';
-require_once 'customizer/customizer-css-wphead.php';
+//require_once 'customizer/customizer-css-wphead.php';
 require_once 'gravityforms.php';
 
 // Enable Font Awesome 5 Pro
