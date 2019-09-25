@@ -233,17 +233,17 @@ add_filter( 'fl_less_vars', function( $vars ) {
 */
 
 //Enqueue Font Awesome Locally
-/*
 add_action( 'wp_enqueue_scripts', function() {
     global $wp_styles;
     if ( isset( $wp_styles->queue ) ) {
+		$fa_enqueued = false;
         foreach ( $wp_styles->queue as $key => $handle ) {
             if ( 'font-awesome-5' === $handle ) {
-                if ( is_dir( ABSPATH . '/fonts/fontawesome' ) ) {
-                    $wp_styles->registered[ $handle ]->src = site_url( 'fonts/fontawesome/css/fontawesome.min.css');
-                }
+				$fa_enqueued = true;
+                    $wp_styles->registered[ $handle ]->src = get_stylesheet_directory_uri() . '/fonts/fontawesome/css/all.min.css';
             }
         }
+		
+		if( !$fa_enqueued ){ wp_enqueue_style('font-awesome-5', get_stylesheet_directory_uri() . '/fonts/fontawesome/css/all.min.css', array(), '5.8.1'); }
     }
 }, 11 );
-*/
